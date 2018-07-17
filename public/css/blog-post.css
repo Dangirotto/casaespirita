@@ -1,0 +1,39 @@
+/*!
+ * Start Bootstrap - Blog Post (https://startbootstrap.com/template-overviews/blog-post)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-post/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    /*padding-top: 56px;*/
+    padding-top: 80px;
+  }
+}
+
+.principal-footer{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.logo-republica-angola{
+    max-height: 150px;
+    max-width: 150px;
+    border-top: 20px;
+}
+
+.titulo-decreto-main{
+    padding-top: 30px;
+}
+
+.chapter-name{
+    margin-top: 30px;
+}
+
+.article-name{
+    margin-top: 25px;
+}
