@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class AdminArticlesController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -62,7 +63,8 @@ class AdminArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+//        $artigo = Article::findOrFail($id);
+//        return $artigo;
     }
 
     /**

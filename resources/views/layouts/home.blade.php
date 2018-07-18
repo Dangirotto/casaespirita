@@ -16,7 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="css/blog.css" rel="stylesheet">
+    <link href="/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                 @endif
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">Casa Espírita</a>
+                <a class="blog-header-logo text-dark" href="/">Casa Espírita</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <!-- <a class="text-muted" href="#">
@@ -46,9 +46,9 @@
         </div>
     </header>
 
-    <div class="nav-scroller py-1 mb-2">
+    <div class="nav-scroller py-1 mb-2 borda-nav-bar">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#">Início</a>
+            <a class="p-2 text-muted" href="/">Início</a>
             <a class="p-2 text-muted" href="#">Artigos / Notícias</a>
             <!-- <a class="p-2 text-muted" href="#">Notícias</a> -->
             <a class="p-2 text-muted" href="#">Vídeos</a>
@@ -66,10 +66,7 @@
     @yield('content')
 
     <footer class="blog-footer">
-        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        <p>
-            <a href="#">Back to top</a>
-        </p>
+        <p>Copyright Casa Espírita 2018</p>
     </footer>
 
     <!-- Bootstrap core JavaScript
@@ -77,9 +74,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/holder.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/holder.min.js"></script>
     <script>
         Holder.addTheme('thumb', {
             bg: '#55595c',

@@ -33,29 +33,31 @@
             </thead>
             <tbody>
                 @foreach($artigos as $artigo)
-                    <td>{{$artigo->titulo}}</td>
-                    <td>
-                        <img height="50" class="rounded" src="{{$artigo->imagem ?? $artigo->photoPlaceholder()}}" alt="Imagem do Artigo">
-                    </td>
-                    <td>{{$artigo->autor}}</td>
-                    <td>{{$artigo->user_id}}</td>
-                    <td>{{$artigo->views}}</td>
-                    <td>{{$artigo->created_at->diffForHumans()}}</td>
-                    <td>{{$artigo->updated_at->diffForHumans()}}</td>
-                    <td>
-                        <div class="row">
-                            <a href="{{route('admin.artigos.edit', $artigo->id)}}">
-                                <button class="btn btn-success" title="Editar artigo">
-                                    <i class="fa fa-fw fa-edit"></i>
+                    <tr>
+                        <td>{{$artigo->titulo}}</td>
+                        <td>
+                            <img height="50" class="rounded" src="{{$artigo->imagem ?? $artigo->photoPlaceholder()}}" alt="Imagem do Artigo">
+                        </td>
+                        <td>{{$artigo->autor}}</td>
+                        <td>{{$artigo->user_id}}</td>
+                        <td>{{$artigo->views}}</td>
+                        <td>{{$artigo->created_at->diffForHumans()}}</td>
+                        <td>{{$artigo->updated_at->diffForHumans()}}</td>
+                        <td>
+                            <div class="row">
+                                <a href="{{route('admin.artigos.edit', $artigo->id)}}">
+                                    <button class="btn btn-success" title="Editar artigo">
+                                        <i class="fa fa-fw fa-edit"></i>
+                                    </button>
+                                </a>
+                                {!! Form::open(['method'=>'DELETE', 'action'=>['AdminArticlesController@destroy',$artigo->id]]) !!}
+                                <button type="submit" class="btn btn-danger" title="Apagar Artigo">
+                                    <i class="fa fa-fw fa-trash"></i>
                                 </button>
-                            </a>
-                            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminArticlesController@destroy',$artigo->id]]) !!}
-                            <button type="submit" class="btn btn-danger" title="Apagar Artigo">
-                                <i class="fa fa-fw fa-trash"></i>
-                            </button>
-                            {!! Form::close() !!}
-                        </div>
-                    </td>
+                                {!! Form::close() !!}
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
