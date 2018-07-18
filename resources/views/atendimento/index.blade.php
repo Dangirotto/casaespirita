@@ -7,6 +7,10 @@
         <!-- Post Content Column -->
         <div class="col-lg-8">
 
+            @if(Session::has('adminAtendimentoSuccessMessage'))
+                <p class="alert alert-success">{{session('adminAtendimentoSuccessMessage')}}</p>
+            @endif
+
             <h1 class="mt-4 fonte-merienda">Atendimento Fraterno</h1>
             <hr>
             <p class="lead fonte-merienda">O que é o atendimento fraterno?</p>

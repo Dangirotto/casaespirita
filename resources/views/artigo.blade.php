@@ -5,7 +5,7 @@
     <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8">
+        <div class="col-lg-8" style="padding-bottom: 20px;">
 
             <!-- Title -->
             <h1 class="mt-4 fonte-merienda">{{$artigo->titulo}}</h1>
@@ -33,6 +33,7 @@
             {!! $artigo->texto !!}
 
             <hr>
+            <p class="lead">Fonte: <a href="{{$artigo->fonte}}" target="_blank">{{$artigo->fonte}}</a></p>
 
             <a href="javascript:history.back()"><button class="btn btn-primary">Voltar</button></a>
 

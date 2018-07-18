@@ -7,6 +7,8 @@ use App\Http\Requests\AtendimentoEmailRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class AtendimentoController extends Controller
 {
@@ -88,7 +90,18 @@ class AtendimentoController extends Controller
 
     //MEUS METODOS
     public function iniciar_atendimento(AtendimentoEmailRequest $request){
-        return $request->all();
+//        return $request->all();
+        $email = $request->email;
+        $codigo = bcrypt(time().$email);
+        $data = [
+            'email'=>$email,
+            'codigo'=>$codigo
+        ];
+        Mail::send('emails.atendinicio', $data, function($message) use ($data){
+            $message->to($data['email'], 'Amigo')->subject('Atendimento Fraterno - Código');
+        });
+        Session::flash('adminAtendimentoSuccessMessage','Atendimento solicitado! Foi enviado para você um e-mail com as instruções para iniciar seu atendimento');
+        return redirect(route('atendimento.index'));
     }
 
     public function continuar_atendimento(AtendimentoCodigoRequest $request){
