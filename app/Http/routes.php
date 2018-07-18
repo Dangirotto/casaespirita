@@ -32,6 +32,11 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+// ATENDIMENTO FRATERNO
+Route::resource('/atendimento', 'AtendimentoController');
+Route::post('/atendimento/iniciar', 'AtendimentoController@iniciar_atendimento');
+Route::post('/atendimento/continuar', 'AtendimentoController@continuar_atendimento');
+
 // VER ARTIGO
 Route::get('/artigos/{id}', function($id){
     $artigo = Article::findOrFail($id);
