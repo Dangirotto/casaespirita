@@ -17,7 +17,7 @@
     <!-- ATENÇÃO PARA UM POST PRINCIPAL -->
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark artigo_index_fundo">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">{{$artigo_principal->titulo}}</h1>
+            <h1 class="display-4 font-italic fonte-merienda">{{$artigo_principal->titulo}}</h1>
             <p class="lead my-3 text-justify">{{str_limit(strip_tags($artigo_principal->texto),100)}}</p>
             <p class="lead mb-0"><a href="{{route('artigos.show', $artigo_principal->id)}}" class="text-white font-weight-bold">Leia mais...</a></p>
         </div>
@@ -29,7 +29,7 @@
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
                     <h3 class="mb-0">
-                        <a class="text-dark" href="#">{{$artigo->titulo}}</a>
+                        <a class="text-dark fonte-merienda" href="#">{{$artigo->titulo}}</a>
                     </h3>
                     <div class="mb-1 text-muted">{{$artigo->created_at->toFormattedDateString()}}</div>
                     <p class="card-text mb-auto text-justify">{{str_limit(strip_tags($artigo->texto),50)}}</p>
@@ -45,13 +45,13 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8 blog-main">
-                <h3 class="pb-3 mb-4 font-italic border-bottom">
+                <h3 class="pb-3 mb-4 font-italic border-bottom fonte-merienda">
                     Último post
                 </h3>
 
                 <div class="blog-post">
-                    <h2 class="blog-post-title">{{$artigo_ultimo->titulo}}</h2>
-                    <p class="blog-post-meta">{{$artigo_ultimo->created_at->toFormattedDateString()}} by <a href="#">{{$artigo_ultimo->autor}}</a></p>
+                    <h2 class="blog-post-title fonte-merienda">{{$artigo_ultimo->titulo}}</h2>
+                    <p class="blog-post-meta">{{$artigo_ultimo->created_at->toFormattedDateString()}} por <a href="#" class="fonte-merienda">{{$artigo_ultimo->autor}}</a></p>
 
                     {!! $artigo_ultimo->texto !!}
 

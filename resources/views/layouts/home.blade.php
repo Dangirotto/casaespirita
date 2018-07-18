@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <link href="/css/blog.css" rel="stylesheet">
 </head>
 
@@ -30,7 +31,7 @@
                 @endif
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="/">Casa Espírita</a>
+                <a class="blog-header-logo text-dark fonte-merienda" href="/">Casa Espírita</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <!-- <a class="text-muted" href="#">
@@ -47,7 +48,7 @@
     </header>
 
     <div class="nav-scroller py-1 mb-2 borda-nav-bar">
-        <nav class="nav d-flex justify-content-between">
+        <nav class="nav d-flex justify-content-between fonte-merienda">
             <a class="p-2 text-muted" href="/">Início</a>
             <a class="p-2 text-muted" href="{{route('artigos.list')}}">Artigos / Notícias</a>
             <!-- <a class="p-2 text-muted" href="#">Notícias</a> -->
@@ -65,7 +66,7 @@
 
     @yield('content')
 
-    <footer class="blog-footer">
+    <footer class="blog-footer fonte-merienda">
         <p>Copyright Casa Espírita 2018</p>
     </footer>
 

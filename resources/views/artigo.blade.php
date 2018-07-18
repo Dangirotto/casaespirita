@@ -8,12 +8,12 @@
         <div class="col-lg-8">
 
             <!-- Title -->
-            <h1 class="mt-4">{{$artigo->titulo}}</h1>
+            <h1 class="mt-4 fonte-merienda">{{$artigo->titulo}}</h1>
 
             <!-- Author -->
             <p class="lead">
                 por
-                <a href="#">{{$artigo->autor}}</a>
+                <a href="#" class="fonte-merienda">{{$artigo->autor}}</a>
             </p>
 
             <hr>

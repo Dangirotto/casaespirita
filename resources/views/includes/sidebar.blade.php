@@ -1,6 +1,6 @@
 <aside class="col-md-4 blog-sidebar">
     <div class="p-3 mb-3 bg-light rounded">
-        <h4 class="font-italic">Sobre</h4>
+        <h4 class="font-italic fonte-merienda">Sobre</h4>
         <p class="mb-0 text-justify">Somos apaixonados pela doutrina espírita e criamos este
             site com o intuito de reunir várias informações e serviços importantes para
             todos aqueles que queiram conhecer esta doutrina ou mesmo aprender mais.
@@ -25,12 +25,13 @@
         {{--</ol>--}}
     {{--</div>--}}
 
-    <div class="p-3">
-        <h4 class="font-italic">Nos encontre</h4>
+    <div class="p-3 mb-3 bg-light rounded">
+        <h4 class="font-italic fonte-merienda">Nos encontre</h4>
         <ol class="list-unstyled">
             <li><a href="#">Facebook</a></li>
             <li><a href="#">E-mail</a></li>
             <li><a href="#">Contato</a></li>
         </ol>
     </div>
+
 </aside><!-- /.blog-sidebar -->

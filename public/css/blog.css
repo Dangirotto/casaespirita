@@ -12,6 +12,10 @@
   /*background-position: center center;*/
 /*}*/
 
+.fonte-merienda{
+  font-family: 'Merienda', cursive !important;
+}
+
 .custom-pagination li{
   position: relative;
   border: 1px solid #ddd;
