@@ -12,14 +12,14 @@
 
             <!-- Author -->
             <p class="lead">
-                by
+                por
                 <a href="#">{{$artigo->autor}}</a>
             </p>
 
             <hr>
 
             <!-- Date/Time -->
-            <p>Postado em {{$artigo->created_at->diffForHumans()}}</p>
+            <p>Postado {{$artigo->created_at->diffForHumans()}}</p>
 
             <hr>
 
@@ -34,7 +34,7 @@
 
             <hr>
 
-            <a href="/"><button class="btn btn-primary">Voltar</button></a>
+            <a href="javascript:history.back()"><button class="btn btn-primary">Voltar</button></a>
 
     </div>
     <!-- /.row -->

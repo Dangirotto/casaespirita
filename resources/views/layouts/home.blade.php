@@ -49,7 +49,7 @@
     <div class="nav-scroller py-1 mb-2 borda-nav-bar">
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 text-muted" href="/">Início</a>
-            <a class="p-2 text-muted" href="#">Artigos / Notícias</a>
+            <a class="p-2 text-muted" href="{{route('artigos.list')}}">Artigos / Notícias</a>
             <!-- <a class="p-2 text-muted" href="#">Notícias</a> -->
             <a class="p-2 text-muted" href="#">Vídeos</a>
             <a class="p-2 text-muted" href="#">Doutrina</a>

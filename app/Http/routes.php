@@ -38,6 +38,12 @@ Route::get('/artigos/{id}', function($id){
     return view('artigo', compact('artigo'));
 })->name('artigos.show');
 
+// ARTIGOS/NOTICIAS
+Route::get('/artigos', function(){
+    $artigos = Article::orderBy('id','desc')->paginate(3);
+    return view('artigosnoticias', compact('artigos'));
+})->name('artigos.list');
+
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/admin', function(){

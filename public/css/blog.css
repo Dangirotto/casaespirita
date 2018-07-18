@@ -12,6 +12,13 @@
   /*background-position: center center;*/
 /*}*/
 
+.custom-pagination li{
+  position: relative;
+  border: 1px solid #ddd;
+  float: left;
+  padding: 6px 12px;
+}
+
 .borda-nav-bar{
   border-bottom: 1px solid #e5e5e5;
 }

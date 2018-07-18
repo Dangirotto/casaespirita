@@ -32,7 +32,7 @@
                         <a class="text-dark" href="#">{{$artigo->titulo}}</a>
                     </h3>
                     <div class="mb-1 text-muted">{{$artigo->created_at->toFormattedDateString()}}</div>
-                    <p class="card-text mb-auto text-justify">{{str_limit(strip_tags($artigo_principal->texto),50)}}</p>
+                    <p class="card-text mb-auto text-justify">{{str_limit(strip_tags($artigo->texto),50)}}</p>
                     <a href="{{route('artigos.show', $artigo->id)}}">Ler mais...</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block" height="200" width="250" src="{{$artigo->imagem}}" alt="Card image cap">
