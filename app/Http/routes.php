@@ -12,6 +12,8 @@
 */
 
 use App\Article;
+use App\Atendimento;
+use App\Chat;
 
 
 Route::get('/', function () {
@@ -38,7 +40,8 @@ Route::post('/atendimento/iniciar', 'AtendimentoController@iniciar_atendimento')
 //Route::get('/atendimento/continuar/{codigo}', 'AtendimentoController@continuar_atendimento');
 Route::post('/atendimento/retomar', 'AtendimentoController@continuar_atendimento');
 Route::get('/atendimento/continuar/{codigo}', function($codigo){
-    return view('atendimento.chat', compact('codigo'));
+    $atendimento = Atendimento::where('codigo',$codigo)->first();
+    return view('atendimento.chat', compact('atendimento'));
 });
 
 // VER ARTIGO

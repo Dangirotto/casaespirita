@@ -54,6 +54,7 @@
         @include('includes.sidebar')
 
     </div>
+</div>
     <!-- /.container -->
 
 

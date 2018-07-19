@@ -25,7 +25,7 @@ function insertChat(who, text, time){
     var control = "";
     var date = formatAMPM(new Date());
 
-    if (who == "me"){
+    if (who == "you"){
         control = '<li style="width:100%">' +
             '<div class="msj macro">' +
             // '<div class="avatar"><img class="img-circle" style="width:30%; border-radius: 50%;" src="'+ me.avatar +'" /></div>' +
@@ -71,15 +71,15 @@ $('body > div > div > div:nth-child(2) > span').click(function(){
 })
 
 //-- Clear Chat
-resetChat();
+// resetChat();
 
 //-- Print Messages
-insertChat("me", "Hello Tom...", 0);
-insertChat("you", "Hi, Pablo", 1500);
-insertChat("me", "What would you like to talk about today?", 3500);
-insertChat("you", "Tell me a joke",7000);
-insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", 9500);
-insertChat("you", "LOL", 12000);
+// insertChat("me", "Hello Tom...", 0);
+// insertChat("you", "Hi, Pablo", 1500);
+// insertChat("me", "What would you like to talk about today?", 3500);
+// insertChat("you", "Tell me a joke",7000);
+// insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", 9500);
+// insertChat("you", "LOL", 12000);
 
 
 //-- NOTE: No use time on insertChat.
