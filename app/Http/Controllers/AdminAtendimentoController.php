@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Atendimento;
-use App\Http\Requests\AtendimentoCodigoRequest;
-use App\Http\Requests\AtendimentoEmailRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 
-class AtendimentoController extends Controller
+class AdminAtendimentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +16,8 @@ class AtendimentoController extends Controller
      */
     public function index()
     {
-        return view('atendimento.index');
+        $atendimentos = Atendimento::orderBy('updated_at','asc')->get();
+        return view('admin.atendimento.index', compact('atendimentos'));
     }
 
     /**
@@ -87,26 +84,5 @@ class AtendimentoController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    //MEUS METODOS
-    public function iniciar_atendimento(AtendimentoEmailRequest $request){
-//        return $request->all();
-        $email = $request->email;
-        $codigo = md5(time().$email);
-        $data = [
-            'email'=>$email,
-            'codigo'=>$codigo
-        ];
-        Mail::send('emails.atendinicio', $data, function($message) use ($data){
-            $message->to($data['email'], 'Amigo')->subject('Atendimento Fraterno - Código');
-        });
-        Session::flash('adminAtendimentoSuccessMessage','Atendimento solicitado! Foi enviado para você um e-mail com as instruções para iniciar seu atendimento');
-        Atendimento::create(['email'=>$email,'codigo'=>$codigo]);
-        return redirect(route('atendimento.index'));
-    }
-
-    public function continuar_atendimento(AtendimentoCodigoRequest $request){
-        return $request->all();
     }
 }

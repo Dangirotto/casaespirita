@@ -12,5 +12,9 @@ class Atendimento extends Model
     public function chats(){
         return $this->hasMany('App\Chat');
     }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
     // *********
 }

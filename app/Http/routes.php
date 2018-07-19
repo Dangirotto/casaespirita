@@ -35,7 +35,11 @@ Route::get('/home', 'HomeController@index');
 // ATENDIMENTO FRATERNO
 Route::resource('/atendimento', 'AtendimentoController');
 Route::post('/atendimento/iniciar', 'AtendimentoController@iniciar_atendimento');
-Route::post('/atendimento/continuar', 'AtendimentoController@continuar_atendimento');
+//Route::get('/atendimento/continuar/{codigo}', 'AtendimentoController@continuar_atendimento');
+Route::post('/atendimento/retomar', 'AtendimentoController@continuar_atendimento');
+Route::get('/atendimento/continuar/{codigo}', function($codigo){
+    return view('atendimento.chat', compact('codigo'));
+});
 
 // VER ARTIGO
 Route::get('/artigos/{id}', function($id){
@@ -51,8 +55,13 @@ Route::get('/artigos', function(){
 
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
+
     Route::get('/admin', function(){
         return view('admin.index');
     });
+
     Route::resource('/admin/artigos', 'AdminArticlesController');
+
+    Route::resource('/admin/atendimento', 'AdminAtendimentoController');
+
 });

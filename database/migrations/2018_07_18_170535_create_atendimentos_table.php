@@ -17,7 +17,7 @@ class CreateAtendimentosTable extends Migration
             $table->increments('id');
             $table->string('email');
             $table->string('codigo');
-            $table->integer('user_id')->unsigned()->default(0);
+            $table->integer('user_id')->unsigned()->index()->default(0);
             $table->boolean('ativo')->default(true);
             $table->timestamps();
         });
