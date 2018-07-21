@@ -44,6 +44,13 @@ Route::get('/atendimento/continuar/{codigo}', function($codigo){
     return view('atendimento.chat', compact('atendimento'));
 });
 
+// AJAX
+Route::get('ajax',function(){
+    return view('message');
+});
+Route::post('/ajax_update_chat','AjaxController@updateChat');
+Route::post('/ajax_chat_msg','AjaxController@msgChat');
+
 // VER ARTIGO
 Route::get('/artigos/{id}', function($id){
     $artigo = Article::findOrFail($id);

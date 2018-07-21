@@ -6,34 +6,38 @@
 
     <div class="row">
         <div class="col-md-12 frame" style="background-color: #e0e0de;">
-            <ul>
-                @foreach($atendimento->chats()->orderBy('created_at')->get() as $chat)
+            <ul id="atendimento-chat-fill">
+                {{--@foreach($atendimento->chats()->orderBy('created_at')->get() as $chat)--}}
 
-                    @if($chat->postado_por == 'guest')
-                        <li style="width:100%">
-                            <div class="msj-rta macro">
-                                <div class="text text-r">
-                                    <p>{{$chat->mensagem}}</p>
-                                    <p><small>{{$chat->created_at->diffForHumans()}}</small></p>
-                                </div>
-                            </div>
-                        </li>
-                    @else
-                        <li style="width:100%">
-                            <div class="msj macro">
-                                <div class="text text-l">
-                                    <p>{{$chat->mensagem}}</p>
-                                    <p><small>{{$chat->created_at->diffForHumans()}}</small></p>
-                                </div>
-                            </div>
-                        </li>
-                    @endif
+                    {{--@if($chat->postado_por == 'guest')--}}
+                        {{--<li style="width:100%">--}}
+                            {{--<div class="msj-rta macro">--}}
+                                {{--<div class="text text-r">--}}
+                                    {{--<p>{{$chat->mensagem}}</p>--}}
+                                    {{--<p><small>{{$chat->created_at->diffForHumans()}}</small></p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                    {{--@else--}}
+                        {{--<li style="width:100%">--}}
+                            {{--<div class="msj macro">--}}
+                                {{--<div class="text text-l">--}}
+                                    {{--<p>{{$chat->mensagem}}</p>--}}
+                                    {{--<p><small>{{$chat->created_at->diffForHumans()}}</small></p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                    {{--@endif--}}
 
-                @endforeach
+                {{--@endforeach--}}
             </ul>
             <div class="msj-rta macro">
                 <div class="text text-r" style="background:whitesmoke !important">
-                    <input class="mytext" placeholder="Type a message"/>
+                    {!! Form::open(['id'=>'envia-mensagem','method'=>'post', 'action'=>'AtendimentoController@store']) !!}
+                        <input type="hidden" name="codigo" value="{{$atendimento->codigo}}">
+                        <input class="mytext" placeholder="Escreva sua mensagem" style="width: 90%;"/>
+                        <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
@@ -42,4 +46,67 @@
 
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+
+    // jQuery(document).ready(function(){
+    //     jQuery('#ajaxSubmit').click(function(e){
+    //         e.preventDefault();
+    //         $.ajaxSetup({
+    //             headers: {
+    //                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+    //             }
+    //         });
+    //     });
+    // });
+
+    $(document).ready(function(){
+
+        var atendId = '{{$atendimento->id}}';
+        var token = '{{csrf_token()}}';
+        updateChat();
+
+        setInterval(function(){
+            updateChat();
+        }, 5000); // 1000 = 1 second
+
+
+        function updateChat(){
+            // $.ajaxSetup({
+            //     headers: {
+            //         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            //     }
+            // });
+            $.ajax({
+                url:'/ajax_update_chat',
+                data:{_token:token,id:atendId},
+                type:'POST',
+                success:function(data){
+                    if(!data.error){
+                        $('#atendimento-chat-fill').html(data.msg);
+                    }
+                },
+            });
+        } // Function updateChat
+
+        $("#envia-mensagem").submit(function(evt){
+            evt.preventDefault();
+            var mensagem = $(".mytext").val();
+            $.ajax({
+                url:'/ajax_chat_msg',
+                data:{_token:token,id:atendId,msgx:mensagem,postado:'guest'},
+                type:'POST',
+                success:function(data){
+                    if(!data.error){
+                        $(".mytext").val('');
+                        updateChat();
+                    }
+                },
+            });
+        });
+    });
+
+</script>
 @endsection
