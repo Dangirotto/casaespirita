@@ -13,7 +13,7 @@
 
         @if(Session::has('adminAtendimentoSuccessMessage'))
             <p class="alert alert-success">{{session('adminAtendimentoSuccessMessage')}}</p>
-    @endif
+        @endif
 
         <!-- Conteudo da pagina -->
         {{--<a href="{{route('admin.artigos.create')}}"><button class="btn btn-primary botao_borda">Inserir</button></a>--}}
@@ -26,17 +26,39 @@
                 <th>Criado</th>
                 <th>Status</th>
                 <th>Número de mensagens</th>
+                <th>Última mensagem</th>
                 <th>Ações</th>
             </tr>
             </thead>
             <tbody>
             @foreach($atendimentos as $atendimento)
                 <tr>
-                    <td>{{$atendimento->user_id == 0 ? '-' : $atendimento->user->name}}</td>
+                    <td>
+                        @if($atendimento->user_id == 0)
+                            {!! Form::model($atendimento, ['method'=>'POST', 'action'=>['AdminAtendimentoController@assumir', $atendimento->id]]) !!}
+                                    <button type="submit" class="btn btn-success">Assumir atendimento</button>
+                            {!! Form::close() !!}
+                        @else
+                            @if($atendimento->user_id == $user->id)
+                                <a href="{{route('admin.atendimento.atender', $atendimento->id)}}">
+                                    <button class="btn btn-success">Atender</button></a>
+                            @else
+                                {{$atendimento->user->name}}
+                            @endif
+                        @endif
+                        {{--{{$atendimento->user_id == 0 ? '-' : $atendimento->user->name}}--}}
+                    </td>
                     <td>{{$atendimento->email}}</td>
-                    <td>{{$atendimento->created_at}}</td>
-                    <td>{{$atendimento->ativo}}</td>
+                    <td>{{$atendimento->created_at->diffForHumans()}}</td>
+                    <td>
+                        @if($atendimento->ativo == 1)
+                            Ativo
+                        @else
+                            Inativo
+                        @endif
+                    </td>
                     <td>{{$atendimento->chats()->count()}}</td>
+                    <td>{{$atendimento->ultimaMensagem()->diffForHumans()}}</td>
                     <td>
                         <div class="row">
                             <a href="{{route('admin.artigos.edit', $atendimento->id)}}">

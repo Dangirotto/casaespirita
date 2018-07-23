@@ -73,5 +73,10 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('/admin/artigos', 'AdminArticlesController');
 
     Route::resource('/admin/atendimento', 'AdminAtendimentoController');
+    Route::post('/admin/atendimento/{id}/assumir', 'AdminAtendimentoController@assumir');
+    Route::get('admin/atendimento/atender/{id}', function($id){
+        $atendimento = Atendimento::findOrFail($id);
+        return view('admin.atendimento.chat', compact('atendimento'));
+    })->name('admin.atendimento.atender');
 
 });

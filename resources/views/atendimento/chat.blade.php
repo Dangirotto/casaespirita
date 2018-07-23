@@ -70,7 +70,7 @@
 
         setInterval(function(){
             updateChat();
-        }, 5000); // 1000 = 1 second
+        }, 2000); // 1000 = 1 second
 
 
         function updateChat(){
@@ -81,7 +81,7 @@
             // });
             $.ajax({
                 url:'/ajax_update_chat',
-                data:{_token:token,id:atendId},
+                data:{_token:token,id:atendId, lado:'guest'},
                 type:'POST',
                 success:function(data){
                     if(!data.error){
@@ -89,6 +89,9 @@
                     }
                 },
             });
+            $("#atendimento-chat-fill").animate({
+                scrollTop: 20000
+            }, 200);
         } // Function updateChat
 
         $("#envia-mensagem").submit(function(evt){
@@ -105,6 +108,9 @@
                     }
                 },
             });
+            $("#atendimento-chat-fill").animate({
+                scrollTop: 20000
+            }, 200);
         });
     });
 

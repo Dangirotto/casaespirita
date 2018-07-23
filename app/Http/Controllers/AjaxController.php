@@ -11,10 +11,11 @@ class AjaxController extends Controller
 {
     public function updateChat(){
         $id = $_POST['id'];
+        $lado = $_POST['lado'];
         $mensagem = '';
         $atendimento = Atendimento::findOrFail($id);
         foreach($atendimento->chats()->orderBy('id','asc')->get() as $chat){
-            if($chat->postado_por == 'guest'){
+            if($chat->postado_por == $lado){
                 $mensagem .= "<li style=\"width:100%\">";
                     $mensagem .= "<div class=\"msj-rta macro\">";
                         $mensagem .= "<div class=\"text text-r\">";

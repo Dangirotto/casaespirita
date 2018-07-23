@@ -17,6 +17,7 @@
 {{--<link href="/css/dataTables.bootstrap4.css" rel="stylesheet">--}}
 <!-- Custom styles for this template-->
     <link href="/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/chat.css">
     {{-- Ícones para a página --}}
     <link rel="icon" href="/Ico_INEA.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/Ico_INEA.ico" type="image/x-icon" />
@@ -240,6 +241,7 @@
     <!-- Custom scripts for this page-->
     {{--<script src="/js/sb-admin-datatables.min.js"></script>--}}
     {{--<script src="/js/sb-admin-charts.min.js"></script>--}}
+    @yield('scripts')
 </div>
 </body>
 

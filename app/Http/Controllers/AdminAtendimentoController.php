@@ -6,6 +6,8 @@ use App\Atendimento;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminAtendimentoController extends Controller
 {
@@ -17,7 +19,8 @@ class AdminAtendimentoController extends Controller
     public function index()
     {
         $atendimentos = Atendimento::orderBy('updated_at','asc')->get();
-        return view('admin.atendimento.index', compact('atendimentos'));
+        $user = Auth::user();
+        return view('admin.atendimento.index', compact('atendimentos', 'user'));
     }
 
     /**
@@ -84,5 +87,14 @@ class AdminAtendimentoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function assumir(Request $request, $id){
+        $user = Auth::user();
+        $atendimento = Atendimento::findOrFail($id);
+        $atendimento->user_id = $user->id;
+        $atendimento->update();
+        Session::flash('adminAtendimentoSuccessMessage', 'Atendimento assumido com sucesso!');
+        return redirect()->back();
     }
 }

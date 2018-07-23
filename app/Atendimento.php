@@ -17,4 +17,9 @@ class Atendimento extends Model
         return $this->belongsTo('App\User');
     }
     // *********
+
+    public function ultimaMensagem(){
+        $ultimo_chat = $this->chats()->orderBy('id','desc')->first();
+        return $ultimo_chat->created_at;
+    }
 }
