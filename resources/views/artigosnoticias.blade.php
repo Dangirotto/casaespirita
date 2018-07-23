@@ -8,7 +8,7 @@
                 <div class="card flex-md-row mb-4 box-shadow h-md-250">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h3 class="mb-0">
-                            <a class="text-dark fonte-merienda" href="#">{{$artigo->titulo}}</a>
+                            <a class="text-dark fonte-merienda" href="{{route('artigos.show', $artigo->id)}}">{{$artigo->titulo}}</a>
                         </h3>
                         <div class="mb-1 text-muted">{{$artigo->created_at->toFormattedDateString()}} por <a
                                     href="#" class="fonte-merienda">{{$artigo->autor}}</a></div>

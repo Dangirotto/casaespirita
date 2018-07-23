@@ -4,21 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Video extends Model
 {
-    protected $fillable = ['user_id', 'titulo', 'imagem', 'texto', 'autor', 'fonte'];
-    protected $images_folder = '/images/';
+    protected $fillable = ['user_id', 'titulo', 'link', 'texto', 'autor', 'fonte'];
 
-    public function getImagemAttribute($value){
+    public function getLinkAttribute($value){
         if($value == null){
             return 'http://placehold.it/200x200';
         } else {
-            return $this->images_folder . $value;
+            $link = str_replace('height="480"','height="248"',$value);
+            return $link;
         }
-    }
-
-    public function photoPlaceholder(){
-        return "http://placehold.it/50x50";
     }
 
     // ************************* RELATIONS *************************

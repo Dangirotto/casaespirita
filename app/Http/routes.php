@@ -14,6 +14,7 @@
 use App\Article;
 use App\Atendimento;
 use App\Chat;
+use App\Video;
 
 
 Route::get('/', function () {
@@ -63,20 +64,38 @@ Route::get('/artigos', function(){
     return view('artigosnoticias', compact('artigos'));
 })->name('artigos.list');
 
+// VER VÍDEO
+Route::get('/videos/{id}', function($id){
+    $video = Video::findOrFail($id);
+    return view('video', compact('video'));
+})->name('videos.show');
+
+// VÍDEOS
+Route::get('/videos', function(){
+    $videos = Video::orderBy('id','desc')->paginate(3);
+    return view('videos', compact('videos'));
+})->name('videos.list');
+
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
 
+    // MAIN PAGE
     Route::get('/admin', function(){
         return view('admin.index');
     });
 
+    //ARTIGOS
     Route::resource('/admin/artigos', 'AdminArticlesController');
 
+    //ATENDIMENTO FRATERNO
     Route::resource('/admin/atendimento', 'AdminAtendimentoController');
     Route::post('/admin/atendimento/{id}/assumir', 'AdminAtendimentoController@assumir');
     Route::get('admin/atendimento/atender/{id}', function($id){
         $atendimento = Atendimento::findOrFail($id);
         return view('admin.atendimento.chat', compact('atendimento'));
     })->name('admin.atendimento.atender');
+
+    //VIDEOS
+    Route::resource('/admin/videos', 'AdminVideoController');
 
 });

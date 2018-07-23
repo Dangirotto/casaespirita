@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Videos">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.videos.index')}}">
                     <i class="fa fa-fw fa-video-camera"></i>
                     <span class="nav-link-text">Videos</span>
                 </a>

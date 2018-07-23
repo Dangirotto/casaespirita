@@ -23,4 +23,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // ************************* RELATIONS *************************
+    public function articles(){
+        return $this->hasMany('App\Article');
+    }
+
+    public function videos(){
+        return $this->hasMany('App\Video');
+    }
+    // *************************************************************
 }

@@ -17,7 +17,9 @@
     <!-- ATENÇÃO PARA UM POST PRINCIPAL -->
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark artigo_index_fundo">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic fonte-merienda">{{$artigo_principal->titulo}}</h1>
+            <h1 class="display-4 font-italic fonte-merienda">
+                <a href="{{route('artigos.show', $artigo_principal->id)}}" style="text-decoration: none;color: #fff;">{{$artigo_principal->titulo}}</a>
+            </h1>
             <p class="lead my-3 text-justify">{{str_limit(strip_tags($artigo_principal->texto),100)}}</p>
             <p class="lead mb-0"><a href="{{route('artigos.show', $artigo_principal->id)}}" class="text-white font-weight-bold">Leia mais...</a></p>
         </div>
@@ -29,7 +31,7 @@
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
                     <h3 class="mb-0">
-                        <a class="text-dark fonte-merienda" href="#">{{$artigo->titulo}}</a>
+                        <a class="text-dark fonte-merienda" href="{{route('artigos.show', $artigo->id)}}">{{$artigo->titulo}}</a>
                     </h3>
                     <div class="mb-1 text-muted">{{$artigo->created_at->toFormattedDateString()}}</div>
                     <p class="card-text mb-auto text-justify">{{str_limit(strip_tags($artigo->texto),50)}}</p>
