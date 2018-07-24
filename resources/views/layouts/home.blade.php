@@ -54,7 +54,7 @@
             <a class="p-2 text-muted" href="{{route('artigos.list')}}">Artigos / Notícias</a>
             <!-- <a class="p-2 text-muted" href="#">Notícias</a> -->
             <a class="p-2 text-muted" href="{{route('videos.list')}}">Vídeos</a>
-            <a class="p-2 text-muted" href="#">Doutrina</a>
+            <a class="p-2 text-muted" href="{{route('doutrina')}}">Doutrina</a>
             <a class="p-2 text-muted" href="#">Livros</a>
             <a class="p-2 text-muted" href="#">Casas / Estudos</a>
             <a class="p-2 text-muted" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>

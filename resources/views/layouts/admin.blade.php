@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Doutrina">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.doutrinas.index')}}">
                     <i class="fa fa-fw fa-sun-o"></i>
                     <span class="nav-link-text">Doutrina</span>
                 </a>

@@ -14,6 +14,7 @@
 use App\Article;
 use App\Atendimento;
 use App\Chat;
+use App\Doutrina;
 use App\Video;
 
 
@@ -76,6 +77,18 @@ Route::get('/videos', function(){
     return view('videos', compact('videos'));
 })->name('videos.list');
 
+// DOUTRINA
+Route::get('/doutrina', function(){
+    $doutrinas = Doutrina::orderBy('id','asc')->get();
+    return view('doutrina', compact('doutrinas'));
+})->name('doutrina');
+
+// VER DOUTRINA
+Route::get('/doutrina/{id}', function($id){
+    $doutrina = Doutrina::findOrFail($id);
+    return view('verdoutrina', compact('doutrina'));
+})->name('doutrina.show');
+
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
 
@@ -97,5 +110,8 @@ Route::group(['middleware'=>'auth'], function(){
 
     //VIDEOS
     Route::resource('/admin/videos', 'AdminVideoController');
+
+    //DOUTRINAS
+    Route::resource('/admin/doutrinas', 'AdminDoutrinasController');
 
 });
