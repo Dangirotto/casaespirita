@@ -22,4 +22,9 @@ class Atendimento extends Model
         $ultimo_chat = $this->chats()->orderBy('id','desc')->first();
         return $ultimo_chat->created_at;
     }
+
+    public function numeroNaoLidas(){
+        $naoLidas = $this->chats()->where('lido','0')->where('postado_por','guest')->count();
+        return $naoLidas;
+    }
 }

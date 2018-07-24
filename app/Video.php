@@ -17,6 +17,11 @@ class Video extends Model
         }
     }
 
+    public function newview(){
+        $this->views = $this->views + 1;
+        $this->update();
+    }
+
     // ************************* RELATIONS *************************
     public function user(){
         return $this->belongsTo('App\User');

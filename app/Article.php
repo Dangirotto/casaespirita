@@ -21,6 +21,11 @@ class Article extends Model
         return "http://placehold.it/50x50";
     }
 
+    public function newview(){
+        $this->views = $this->views + 1;
+        $this->update();
+    }
+
     // ************************* RELATIONS *************************
     public function user(){
         return $this->belongsTo('App\User');

@@ -26,6 +26,7 @@
                 <th>Criado</th>
                 <th>Status</th>
                 <th>Número de mensagens</th>
+                <th>Não lidas</th>
                 <th>Última mensagem</th>
                 <th>Ações</th>
             </tr>
@@ -58,6 +59,7 @@
                         @endif
                     </td>
                     <td>{{$atendimento->chats()->count()}}</td>
+                    <td>{{$atendimento->numeroNaoLidas()}}</td>
                     <td>{{$atendimento->ultimaMensagem()->diffForHumans()}}</td>
                     <td>
                         <div class="row">

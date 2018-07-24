@@ -56,6 +56,7 @@ Route::post('/ajax_chat_msg','AjaxController@msgChat');
 // VER ARTIGO
 Route::get('/artigos/{id}', function($id){
     $artigo = Article::findOrFail($id);
+    $artigo->newview();
     return view('artigo', compact('artigo'));
 })->name('artigos.show');
 
@@ -68,6 +69,7 @@ Route::get('/artigos', function(){
 // VER VÍDEO
 Route::get('/videos/{id}', function($id){
     $video = Video::findOrFail($id);
+    $video->newview();
     return view('video', compact('video'));
 })->name('videos.show');
 
@@ -86,6 +88,7 @@ Route::get('/doutrina', function(){
 // VER DOUTRINA
 Route::get('/doutrina/{id}', function($id){
     $doutrina = Doutrina::findOrFail($id);
+    $doutrina->newview();
     return view('verdoutrina', compact('doutrina'));
 })->name('doutrina.show');
 

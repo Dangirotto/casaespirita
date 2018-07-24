@@ -35,6 +35,7 @@ class AjaxController extends Controller
                 $mensagem .= "</li>";
             }
         }
+        $atendimento->chats()->where('postado_por','<>',$lado)->update(['lido'=>'1']);
         return response()->json(array('msg'=> $mensagem), 200);
     }
 

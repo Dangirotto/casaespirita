@@ -15,4 +15,9 @@ class Doutrina extends Model
             return '/pdf/' . $value;
         }
     }
+
+    public function newview(){
+        $this->views = $this->views + 1;
+        $this->update();
+    }
 }
