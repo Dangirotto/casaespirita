@@ -1,6 +1,25 @@
 .mytext{
     border:0;padding:10px;background:whitesmoke;
+
 }
+@media screen and (max-width: 560px) {
+    .caixa-de-mensagem{
+        width: 75%;
+    }
+}
+@media screen and (min-width: 561px) and (max-width: 1290px)  {
+    .caixa-de-mensagem{
+        width: 90%;
+    }
+}
+@media screen and (min-width: 1291px) {
+    .caixa-de-mensagem{
+        width: 95%;
+    }
+}
+/*.caixa-de-mensagem{*/
+    /*width: 80%;*/
+/*}*/
 .text{
     width:100%;display:flex;flex-direction:column;
 }

@@ -7,35 +7,12 @@
     <div class="row">
         <div class="col-md-12 frame" style="background-color: #e0e0de;">
             <ul id="atendimento-chat-fill">
-                {{--@foreach($atendimento->chats()->orderBy('created_at')->get() as $chat)--}}
-
-                    {{--@if($chat->postado_por == 'guest')--}}
-                        {{--<li style="width:100%">--}}
-                            {{--<div class="msj-rta macro">--}}
-                                {{--<div class="text text-r">--}}
-                                    {{--<p>{{$chat->mensagem}}</p>--}}
-                                    {{--<p><small>{{$chat->created_at->diffForHumans()}}</small></p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</li>--}}
-                    {{--@else--}}
-                        {{--<li style="width:100%">--}}
-                            {{--<div class="msj macro">--}}
-                                {{--<div class="text text-l">--}}
-                                    {{--<p>{{$chat->mensagem}}</p>--}}
-                                    {{--<p><small>{{$chat->created_at->diffForHumans()}}</small></p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</li>--}}
-                    {{--@endif--}}
-
-                {{--@endforeach--}}
             </ul>
             <div class="msj-rta macro">
                 <div class="text text-r" style="background:whitesmoke !important">
                     {!! Form::open(['id'=>'envia-mensagem','method'=>'post', 'action'=>'AtendimentoController@store']) !!}
                         <input type="hidden" name="codigo" value="{{$atendimento->codigo}}">
-                        <input class="mytext" placeholder="Escreva sua mensagem" style="width: 90%;"/>
+                        <input class="caixa-de-mensagem mytext" placeholder="Mensagem..."/>
                         <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button>
                     {!! Form::close() !!}
                 </div>
