@@ -58,7 +58,7 @@
             <a class="p-2 text-muted" href="#">Livros</a>
             <a class="p-2 text-muted" href="#">Casas / Estudos</a>
             <a class="p-2 text-muted" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>
-            <a class="p-2 text-muted" href="#">Contato</a>
+            <a class="p-2 text-muted" href="{{route('contato')}}">Contato</a>
             <!-- <a class="p-2 text-muted" href="#">Health</a>
             <a class="p-2 text-muted" href="#">Style</a>
             <a class="p-2 text-muted" href="#">Travel</a> -->

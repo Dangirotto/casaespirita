@@ -26,7 +26,7 @@
 <hr>
 
 <p class="text-jutify fonte-merienda"><strong>Em resposta a sua mensagem enviada dia {{$data_envio}}:</strong></p>
-<p class="text-jutify">{{$resposta}}</p>
+<p class="text-jutify">{!! $resposta !!}</p>
 <hr>
 
 <p class="text-jutify fonte-merienda"><strong>Mensagem original:</strong></p>

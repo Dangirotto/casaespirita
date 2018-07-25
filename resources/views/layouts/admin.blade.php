@@ -84,7 +84,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Mensagens">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.contato.index')}}">
                     <i class="fa fa-fw fa-envelope"></i>
                     <span class="nav-link-text">Mensagens</span>
                 </a>

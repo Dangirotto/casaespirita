@@ -27,4 +27,9 @@ class Atendimento extends Model
         $naoLidas = $this->chats()->where('lido','0')->where('postado_por','guest')->count();
         return $naoLidas;
     }
+
+    public static function numAtendimentosAbertos(){
+        $numero = Atendimento::where('user_id','0')->count();
+        return $numero;
+    }
 }

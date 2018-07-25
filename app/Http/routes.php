@@ -14,6 +14,7 @@
 use App\Article;
 use App\Atendimento;
 use App\Chat;
+use App\Contato;
 use App\Doutrina;
 use App\Video;
 
@@ -92,12 +93,20 @@ Route::get('/doutrina/{id}', function($id){
     return view('verdoutrina', compact('doutrina'));
 })->name('doutrina.show');
 
+//CONTATO
+Route::get('/contato', function(){
+    return view('contato');
+})->name('contato');
+Route::post('/contato/envia', 'ContatoController@enviaContato')->name('contato.envia');
+
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
 
     // MAIN PAGE
     Route::get('/admin', function(){
-        return view('admin.index');
+        $novas_mensagens = Contato::novasMensagens();
+        $atendimentos_abertos = Atendimento::numAtendimentosAbertos();
+        return view('admin.index', compact('novas_mensagens','atendimentos_abertos'));
     });
 
     //ARTIGOS
@@ -116,5 +125,8 @@ Route::group(['middleware'=>'auth'], function(){
 
     //DOUTRINAS
     Route::resource('/admin/doutrinas', 'AdminDoutrinasController');
+
+    //CONTATO
+    Route::resource('/admin/contato', 'AdminContatoController');
 
 });
