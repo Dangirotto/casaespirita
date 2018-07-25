@@ -28,9 +28,9 @@
     <div class="p-3 mb-3 bg-light rounded">
         <h4 class="font-italic fonte-merienda">Nos encontre</h4>
         <ol class="list-unstyled">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">E-mail</a></li>
-            <li><a href="#">Contato</a></li>
+            {{--<li><a href="#">Facebook</a></li>--}}
+            <li><a href="mailto:dangirotto@gmail.com">E-mail</a></li>
+            <li><a href="{{route('contato')}}">Contato</a></li>
         </ol>
     </div>
 

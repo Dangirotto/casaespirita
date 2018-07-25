@@ -56,7 +56,7 @@
             <a class="p-2 text-muted" href="{{route('videos.list')}}">Vídeos</a>
             <a class="p-2 text-muted" href="{{route('doutrina')}}">Doutrina</a>
             <a class="p-2 text-muted" href="#">Livros</a>
-            <a class="p-2 text-muted" href="#">Casas / Estudos</a>
+            <a class="p-2 text-muted" href="{{route('casas')}}">Casas / Estudos</a>
             <a class="p-2 text-muted" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>
             <a class="p-2 text-muted" href="{{route('contato')}}">Contato</a>
             <!-- <a class="p-2 text-muted" href="#">Health</a>

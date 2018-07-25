@@ -99,6 +99,11 @@ Route::get('/contato', function(){
 })->name('contato');
 Route::post('/contato/envia', 'ContatoController@enviaContato')->name('contato.envia');
 
+//CASAS
+Route::get('/casas', function(){
+    return view('casas.index');
+})->name('casas');
+
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
 
