@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Casa Espírita</title>
+    <title>Portal Espírita</title>
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -32,7 +32,7 @@
                 @endif
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark fonte-merienda" href="/">Casa Espírita</a>
+                <a class="blog-header-logo text-dark fonte-merienda" href="/">Portal Espírita</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <!-- <a class="text-muted" href="#">
@@ -55,7 +55,7 @@
             <!-- <a class="p-2 text-muted" href="#">Notícias</a> -->
             <a class="p-2 text-muted" href="{{route('videos.list')}}">Vídeos</a>
             <a class="p-2 text-muted" href="{{route('doutrina')}}">Doutrina</a>
-            <a class="p-2 text-muted" href="#">Livros</a>
+            <a class="p-2 text-muted" href="{{route('livros')}}">Livros</a>
             <a class="p-2 text-muted" href="{{route('casas')}}">Casas / Estudos</a>
             <a class="p-2 text-muted" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>
             <a class="p-2 text-muted" href="{{route('contato')}}">Contato</a>
@@ -68,7 +68,7 @@
     @yield('content')
 
     <footer class="blog-footer fonte-merienda">
-        <p>Copyright Casa Espírita 2018</p>
+        <p>Copyright Portal Espírita 2018</p>
     </footer>
 
     <!-- Bootstrap core JavaScript

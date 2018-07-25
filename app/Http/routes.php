@@ -104,6 +104,11 @@ Route::get('/casas', function(){
     return view('casas.index');
 })->name('casas');
 
+//Livros
+Route::get('/livros', function(){
+    return view('livros.index');
+})->name('livros');
+
 // PAINEL ADMINISTRATIVO
 Route::group(['middleware'=>'auth'], function(){
 
