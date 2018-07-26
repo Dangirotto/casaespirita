@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <link href="/css/blog.css" rel="stylesheet">
-    <link href="/css/navbar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,57 +48,22 @@
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fonte-merienda">
-        <a class="navbar-brand" href="/">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('artigos.list')}}">Artigos/Notícias</a>
-                </li>
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('videos.list')}}">Vídeos</a>
-                </li>
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('doutrina')}}">Doutrina</a>
-                </li>
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('livros')}}">Livros</a>
-                </li>
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('casas')}}">Casas/Estudos</a>
-                </li>
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>
-                </li>
-                <li class="nav-item item-menu-superior">
-                    <a class="nav-link" href="{{route('contato')}}">Contato</a>
-                </li>
-            </ul>
-            {{--<form class="form-inline col-2">--}}
-                {{--<input class="form-control col-9" type="search" placeholder="Search" aria-label="Search">--}}
-                {{--<button class="btn btn-outline-success col-3" type="submit">O</button>--}}
-            {{--</form>--}}
-        </div>
-    </nav>
-
-
-    {{--<div class="nav-scroller py-1 mb-2 borda-nav-bar">--}}
-        {{--<nav class="nav d-flex justify-content-between fonte-merienda">--}}
-            {{--<a class="p-2 text-muted" href="/">Início</a>--}}
-            {{--<a class="p-2 text-muted" href="{{route('artigos.list')}}">Artigos / Notícias</a>--}}
-            {{--<!-- <a class="p-2 text-muted" href="#">Notícias</a> -->--}}
-            {{--<a class="p-2 text-muted" href="{{route('videos.list')}}">Vídeos</a>--}}
-            {{--<a class="p-2 text-muted" href="{{route('doutrina')}}">Doutrina</a>--}}
-            {{--<a class="p-2 text-muted" href="{{route('livros')}}">Livros</a>--}}
-            {{--<a class="p-2 text-muted" href="{{route('casas')}}">Casas / Estudos</a>--}}
-            {{--<a class="p-2 text-muted" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>--}}
-            {{--<a class="p-2 text-muted" href="{{route('contato')}}">Contato</a>--}}
-        {{--</nav>--}}
-    {{--</div>--}}
+    <div class="nav-scroller py-1 mb-2 borda-nav-bar">
+        <nav class="nav d-flex justify-content-between fonte-merienda">
+            <a class="p-2 text-muted" href="/">Início</a>
+            <a class="p-2 text-muted" href="{{route('artigos.list')}}">Artigos / Notícias</a>
+            <!-- <a class="p-2 text-muted" href="#">Notícias</a> -->
+            <a class="p-2 text-muted" href="{{route('videos.list')}}">Vídeos</a>
+            <a class="p-2 text-muted" href="{{route('doutrina')}}">Doutrina</a>
+            <a class="p-2 text-muted" href="{{route('livros')}}">Livros</a>
+            <a class="p-2 text-muted" href="{{route('casas')}}">Casas / Estudos</a>
+            <a class="p-2 text-muted" href="{{route('atendimento.index')}}">Atendimento Fraterno</a>
+            <a class="p-2 text-muted" href="{{route('contato')}}">Contato</a>
+            <!-- <a class="p-2 text-muted" href="#">Health</a>
+            <a class="p-2 text-muted" href="#">Style</a>
+            <a class="p-2 text-muted" href="#">Travel</a> -->
+        </nav>
+    </div>
 
     @yield('content')
 
