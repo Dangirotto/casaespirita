@@ -24,6 +24,9 @@
     {{--WYSIWYG Editor for textareas--}}
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea' });</script>
+    {{-- Ícones para a página --}}
+    <link rel="icon" href="../images/Portal.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/Portal.ico" type="image/x-icon" />
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">

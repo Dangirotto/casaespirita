@@ -24,6 +24,9 @@
             margin-right: 6px;
         }
     </style>
+    {{-- Ícones para a página --}}
+    <link rel="icon" href="../images/Portal.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/Portal.ico" type="image/x-icon" />
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">

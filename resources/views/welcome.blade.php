@@ -52,7 +52,9 @@
                 </h3>
 
                 <div class="blog-post">
-                    <h2 class="blog-post-title fonte-merienda">{{$artigo_ultimo->titulo}}</h2>
+                    <a href="{{route('artigos.show',$artigo_ultimo->id)}}" style="font-decoration: none; color: #000;">
+                        <h2 class="blog-post-title fonte-merienda">{{$artigo_ultimo->titulo}}</h2>
+                    </a>
                     <p class="blog-post-meta">{{$artigo_ultimo->created_at->toFormattedDateString()}} por <a href="#" class="fonte-merienda">{{$artigo_ultimo->autor}}</a></p>
 
                     {!! $artigo_ultimo->texto !!}

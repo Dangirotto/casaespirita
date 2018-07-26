@@ -20,6 +20,9 @@
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <link href="/css/blog.css" rel="stylesheet">
     <link href="/css/navbar.css" rel="stylesheet">
+    {{-- Ícones para a página --}}
+    <link rel="icon" href="../images/Portal.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/Portal.ico" type="image/x-icon" />
 </head>
 
 <body>
