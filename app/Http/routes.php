@@ -63,7 +63,7 @@ Route::get('/artigos/{id}', function($id){
 
 // ARTIGOS/NOTICIAS
 Route::get('/artigos', function(){
-    $artigos = Article::orderBy('id','desc')->paginate(3);
+    $artigos = Article::orderBy('id','desc')->paginate(5);
     return view('artigosnoticias', compact('artigos'));
 })->name('artigos.list');
 
@@ -76,7 +76,7 @@ Route::get('/videos/{id}', function($id){
 
 // VÍDEOS
 Route::get('/videos', function(){
-    $videos = Video::orderBy('id','desc')->paginate(3);
+    $videos = Video::orderBy('id','desc')->paginate(5);
     return view('videos', compact('videos'));
 })->name('videos.list');
 

@@ -15,7 +15,7 @@
                         <p class="card-text mb-auto text-justify">{{str_limit(strip_tags($video->texto),400)}}</p>
                         <a href="{{route('videos.show', $video->id)}}">Ler mais...</a>
                     </div>
-                    {!! $video->link !!}
+                    {!! str_replace('width="854"','width="480"',$video->link) !!}
                 </div>
             </div>
         @endforeach
