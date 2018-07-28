@@ -18,7 +18,7 @@
     <!-- Conteudo da pagina -->
         <a href="{{route('admin.videos.create')}}"><button class="btn btn-primary botao_borda">Inserir</button></a>
 
-        <table class="table">
+        <table class="table table-responsive">
             <thead>
             <tr>
                 <th>Título</th>

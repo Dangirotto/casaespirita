@@ -1,7 +1,6 @@
 @extends('layouts.home')
 
 @section('content')
-
     <div class="row mb-2">
         @foreach($videos as $video)
             <div class="col-md-12">
@@ -15,7 +14,9 @@
                         <p class="card-text mb-auto text-justify">{{str_limit(strip_tags($video->texto),400)}}</p>
                         <a href="{{route('videos.show', $video->id)}}">Ler mais...</a>
                     </div>
-                    {!! str_replace('width="854"','width="480"',$video->link) !!}
+                    <div class="mostra-video">
+                        {!! str_replace('width="854"','width="480"',$video->link) !!}
+                    </div>
                 </div>
             </div>
         @endforeach

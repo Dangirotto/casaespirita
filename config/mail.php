@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'dangirotto@gmail.com', 'name' => 'Danillo - Portal Espírita'],
+    'from' => ['address' => 'contato@portalespirita.org', 'name' => 'Contato - Portal Espírita'],
 
     /*
     |--------------------------------------------------------------------------

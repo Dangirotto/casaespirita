@@ -16,7 +16,7 @@
     @endif
 
     <!-- Conteudo da pagina -->
-        <table class="table">
+        <table class="table table-responsive">
             <thead>
             <tr>
                 <th>Nome</th>

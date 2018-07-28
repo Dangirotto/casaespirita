@@ -22,7 +22,7 @@
 
             <hr>
             <p class="lead fonte-merienda">Solicitar seu atendimento:</p>
-            <p class="text-justify">O atendimento é totalmente anônimo, bastando inserir seu e-mail no campo abaixo para iniciar. Você receberá um e-mail com um link para continuar seu atendimento e receberá uma notificação quando houver resposta de um atendente.</p>
+            <p class="text-justify">O atendimento é totalmente anônimo, bastando inserir seu e-mail no campo abaixo para iniciar. Você também receberá um e-mail com um link para continuar seu atendimento futuramente.</p>
             {!! Form::open(['method'=>'post', 'action'=>'AtendimentoController@iniciar_atendimento']) !!}
                     <div class="form-group">
                             {!! Form::label('email','E-mail:') !!}

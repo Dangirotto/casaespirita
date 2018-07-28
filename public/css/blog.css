@@ -12,6 +12,17 @@
   /*background-position: center center;*/
 /*}*/
 
+@media (max-width: 991px) {
+  .mostra-video {
+    display: none;
+  }
+}
+@media (max-width: 1199px) {
+  .mostra-video2 {
+    display: none;
+  }
+}
+
 .item-menu-superior{
   padding-right: 30px;
 }

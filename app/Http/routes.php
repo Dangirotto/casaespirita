@@ -45,7 +45,7 @@ Route::post('/atendimento/retomar', 'AtendimentoController@continuar_atendimento
 Route::get('/atendimento/continuar/{codigo}', function($codigo){
     $atendimento = Atendimento::where('codigo',$codigo)->first();
     return view('atendimento.chat', compact('atendimento'));
-});
+})->name('atendimento.continuar');
 
 // AJAX
 Route::get('ajax',function(){

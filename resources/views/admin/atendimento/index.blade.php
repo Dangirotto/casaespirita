@@ -8,7 +8,7 @@
             <li class="breadcrumb-item">
                 <a href="/admin">Admin</a>
             </li>
-            <li class="breadcrumb-item active">Artigos/Notícias</li>
+            <li class="breadcrumb-item active">Atendimento</li>
         </ol>
 
         @if(Session::has('adminAtendimentoSuccessMessage'))
@@ -18,7 +18,7 @@
         <!-- Conteudo da pagina -->
         {{--<a href="{{route('admin.artigos.create')}}"><button class="btn btn-primary botao_borda">Inserir</button></a>--}}
 
-        <table class="table">
+        <table class="table table-responsive">
             <thead>
             <tr>
                 <th>Atendente</th>
@@ -28,7 +28,7 @@
                 <th>Número de mensagens</th>
                 <th>Não lidas</th>
                 <th>Última mensagem</th>
-                <th>Ações</th>
+                {{--<th>Ações</th>--}}
             </tr>
             </thead>
             <tbody>
@@ -61,20 +61,20 @@
                     <td>{{$atendimento->chats()->count()}}</td>
                     <td>{{$atendimento->numeroNaoLidas()}}</td>
                     <td>{{$atendimento->ultimaMensagem()->diffForHumans()}}</td>
-                    <td>
-                        <div class="row">
-                            <a href="{{route('admin.artigos.edit', $atendimento->id)}}">
-                                <button class="btn btn-success" title="Editar artigo">
-                                    <i class="fa fa-fw fa-edit"></i>
-                                </button>
-                            </a>
-                            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminArticlesController@destroy',$atendimento->id]]) !!}
-                            <button type="submit" class="btn btn-danger" title="Apagar Artigo">
-                                <i class="fa fa-fw fa-trash"></i>
-                            </button>
-                            {!! Form::close() !!}
-                        </div>
-                    </td>
+                    {{--<td>--}}
+                        {{--<div class="row">--}}
+                            {{--<a href="{{route('admin.artigos.edit', $atendimento->id)}}">--}}
+                                {{--<button class="btn btn-success" title="Editar artigo">--}}
+                                    {{--<i class="fa fa-fw fa-edit"></i>--}}
+                                {{--</button>--}}
+                            {{--</a>--}}
+                            {{--{!! Form::open(['method'=>'DELETE', 'action'=>['AdminArticlesController@destroy',$atendimento->id]]) !!}--}}
+                            {{--<button type="submit" class="btn btn-danger" title="Apagar Artigo">--}}
+                                {{--<i class="fa fa-fw fa-trash"></i>--}}
+                            {{--</button>--}}
+                            {{--{!! Form::close() !!}--}}
+                        {{--</div>--}}
+                    {{--</td>--}}
                 </tr>
             @endforeach
             </tbody>

@@ -102,11 +102,13 @@ class AtendimentoController extends Controller
             $message->to($data['email'], 'Amigo')->subject('Atendimento Fraterno - Código');
         });
         Session::flash('adminAtendimentoSuccessMessage','Atendimento solicitado! Foi enviado para você um e-mail com as instruções para iniciar seu atendimento');
-        Atendimento::create(['email'=>$email,'codigo'=>$codigo]);
-        return redirect(route('atendimento.index'));
+        $atendimento = Atendimento::create(['email'=>$email,'codigo'=>$codigo]);
+        $atendimento->chats()->create(['postado_por'=>'user','mensagem'=>'Bem-vindo! Escreva sua mensagem e aguarde a resposta do atendente. Que Deus o abençoe.']);
+        return redirect(route('atendimento.continuar', $codigo));
     }
 
     public function continuar_atendimento(AtendimentoCodigoRequest $request){
-        return $request->all();
+        $codigo = $request['codigo'];
+        return redirect(route('atendimento.continuar', $codigo));
     }
 }

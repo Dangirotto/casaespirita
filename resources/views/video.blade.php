@@ -25,7 +25,9 @@
 
             <!-- Preview Image -->
             {{--<img class="img-fluid rounded" height="300" src="{{$artigo->imagem}}" alt="Imagem do post">--}}
-            {!! str_replace('height="248"','height="440"', str_replace('width="854"','width="730"',$video->link)) !!}
+            <div class="mostra-video2">
+                {!! str_replace('height="248"','height="440"', str_replace('width="854"','width="730"',$video->link)) !!}
+            </div>
             <hr>
 
             <!-- Post Content -->
