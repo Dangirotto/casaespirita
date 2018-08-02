@@ -127,6 +127,9 @@ Route::group(['middleware'=>'auth'], function(){
     //VIDEOS
     Route::resource('/admin/videos', 'AdminVideoController');
 
+    //CALENDARIO
+    Route::resource('/admin/calendario', 'AdminDisponibilidadeController');
+
 });
 
 Route::group(['middleware'=>'admin'], function(){

@@ -14,8 +14,8 @@
     <!-- Custom fonts for this template-->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
-{{--<link href="/css/dataTables.bootstrap4.css" rel="stylesheet">--}}
-<!-- Custom styles for this template-->
+    {{--<link href="/css/dataTables.bootstrap4.css" rel="stylesheet">--}}
+    <!-- Custom styles for this template-->
     <link href="/css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/chat.css">
     {{-- Ícones para a página --}}
@@ -75,7 +75,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Meu calendário">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.calendario.index')}}">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span class="nav-link-text">Meu calendário</span>
                 </a>
