@@ -47,6 +47,18 @@
             {!! Form::close() !!}
             <hr>
 
+                <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                <div id="SkypeButton_Call_dangirotto_1">
+                    <script type="text/javascript">
+                        Skype.ui({
+                            "name": "call",
+                            "element": "SkypeButton_Call_dangirotto_1",
+                            "participants": ["dangirotto"],
+                            "imageSize": 24
+                        });
+                    </script>
+                </div>
+
             @include('includes.form_errors')
 
         </div>

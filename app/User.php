@@ -11,9 +11,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'nivel', 'skype'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -33,4 +31,28 @@ class User extends Authenticatable
         return $this->hasMany('App\Video');
     }
     // *************************************************************
+
+    public static function nivel($id){
+        return User::findOrFail($id)->nivel;
+    }
+
+    public static function skype($id){
+        return User::findOrFail($id)->skype;
+    }
+
+    public function isRoot(){
+        if($this->nivel == 'root'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function isAdmin(){
+        if($this->nivel == 'admin' || $this->nivel == 'root'){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

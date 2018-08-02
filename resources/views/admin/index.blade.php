@@ -11,6 +11,10 @@
             <li class="breadcrumb-item active">Início</li>
         </ol>
 
+        @if(Session::has('middlewareErrorFlash'))
+            <p class="alert alert-danger">{{session('middlewareErrorFlash')}}</p>
+        @endif
+
         <!-- Icon Cards-->
         <div class="row">
             <div class="col-xl-3 col-sm-6 mb-3">

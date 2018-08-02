@@ -16,6 +16,7 @@ use App\Atendimento;
 use App\Chat;
 use App\Contato;
 use App\Doutrina;
+use App\User;
 use App\Video;
 
 
@@ -116,11 +117,25 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/admin', function(){
         $novas_mensagens = Contato::novasMensagens();
         $atendimentos_abertos = Atendimento::numAtendimentosAbertos();
-        return view('admin.index', compact('novas_mensagens','atendimentos_abertos'));
-    });
+        $nivel = User::nivel(Auth::user()->id);
+        return view('admin.index', compact('novas_mensagens','atendimentos_abertos','nivel'));
+    })->name('admin.index');
 
     //ARTIGOS
     Route::resource('/admin/artigos', 'AdminArticlesController');
+
+    //VIDEOS
+    Route::resource('/admin/videos', 'AdminVideoController');
+
+});
+
+Route::group(['middleware'=>'admin'], function(){
+
+    //DOUTRINAS
+    Route::resource('/admin/doutrinas', 'AdminDoutrinasController');
+
+    //CONTATO
+    Route::resource('/admin/contato', 'AdminContatoController');
 
     //ATENDIMENTO FRATERNO
     Route::resource('/admin/atendimento', 'AdminAtendimentoController');
@@ -130,13 +145,11 @@ Route::group(['middleware'=>'auth'], function(){
         return view('admin.atendimento.chat', compact('atendimento'));
     })->name('admin.atendimento.atender');
 
-    //VIDEOS
-    Route::resource('/admin/videos', 'AdminVideoController');
+});
 
-    //DOUTRINAS
-    Route::resource('/admin/doutrinas', 'AdminDoutrinasController');
+Route::group(['middleware'=>'root'], function(){
 
-    //CONTATO
-    Route::resource('/admin/contato', 'AdminContatoController');
+    //USUÁRIOS
+    Route::resource('/admin/usuarios', 'AdminUsersController');
 
 });

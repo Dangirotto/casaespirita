@@ -92,6 +92,12 @@
                     <span class="nav-link-text">Mensagens</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuários">
+                <a class="nav-link" href="{{route('admin.usuarios.index')}}">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span class="nav-link-text">Usuários</span>
+                </a>
+            </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
