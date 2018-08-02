@@ -24,13 +24,9 @@
                     {!! Form::label('email','E-mail:') !!}
                     {!! Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'E-mail:']) !!}
                 </div>
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::label('password','Senha:') !!}--}}
-                    {{--{!! Form::password('password', ['class'=>'form-control']) !!}--}}
-                {{--</div>--}}
                 <div class="form-group">
                     {!! Form::label('nivel','Nível:') !!}
-                    {!! Form::select('nivel', ['admin' => 'Administrador', 'colab' => 'Colaborador'], null, ['placeholder' => 'Nível...','class'=>'form-control']) !!}
+                    {!!  Form::select('nivel', ['admin' => 'Administrador', 'colab' => 'Colaborador'],  null, ['class' => 'form-control','placeholder'=>'Nível...' ]) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('skype','Skype:') !!}

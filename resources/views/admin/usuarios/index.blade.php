@@ -37,12 +37,12 @@
                     <td>{{$usuario->skype}}</td>
                     <td>
                         <div class="row">
-                            <a href="{{route('admin.usuarios.edit', $usuario->id)}}">
-                                <button class="btn btn-success" title="Editar usuário">
-                                    <i class="fa fa-fw fa-edit"></i>
-                                </button>
-                            </a>
                             @if($usuario->nivel <> 'root')
+                                <a href="{{route('admin.usuarios.edit', $usuario->id)}}">
+                                    <button class="btn btn-success" title="Editar usuário">
+                                        <i class="fa fa-fw fa-edit"></i>
+                                    </button>
+                                </a>
                                 {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy',$usuario->id]]) !!}
                                 <button type="submit" class="btn btn-danger" title="Apagar Usuário">
                                     <i class="fa fa-fw fa-trash"></i>

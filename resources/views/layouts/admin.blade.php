@@ -44,12 +44,6 @@
                     <span class="nav-link-text">Início</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home-config">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-wrench"></i>
-                    <span class="nav-link-text">Home-config</span>
-                </a>
-            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Artigos/Notícias">
                 <a class="nav-link" href="{{route('admin.artigos.index')}}">
                     <i class="fa fa-fw fa-file"></i>
@@ -78,6 +72,12 @@
                 <a class="nav-link" href="#">
                     <i class="fa fa-fw fa-edit"></i>
                     <span class="nav-link-text">Casas/Estudos</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Meu calendário">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-calendar"></i>
+                    <span class="nav-link-text">Meu calendário</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Atendimento Fraterno">

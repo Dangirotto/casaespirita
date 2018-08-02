@@ -17,12 +17,16 @@ class RootMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $user = Auth::user();
-        if($user->isRoot()){
-            return $next($request);
+        if(Auth::check()){
+            $user = Auth::user();
+            if($user->isRoot()){
+                return $next($request);
+            }else{
+                Session::flash('middlewareErrorFlash','Esta área está disponível apenas para usuário Master');
+                return redirect(route('admin.index'));
+            }
         }else{
-            Session::flash('middlewareErrorFlash','Esta área está disponível apenas para usuário Master');
-            return redirect(route('admin.index'));
+            return redirect('/');
         }
     }
 }
