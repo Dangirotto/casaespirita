@@ -16,8 +16,8 @@ class CreateDisponibilidadesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->date('inicio');
-            $table->date('final');
+            $table->dateTime('inicio');
+            $table->dateTime('final');
             $table->integer('marcado');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

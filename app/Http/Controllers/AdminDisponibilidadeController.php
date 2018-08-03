@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Disponibilidade;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -26,9 +27,9 @@ class AdminDisponibilidadeController extends Controller
         foreach($disponibilidades as $key => $disponibilidade){
             $disp_lista[] = Calendar::event(
                 "Disponivel",
-                true,
+                false,
                 new \DateTime($disponibilidade->inicio),
-                new \DateTime($disponibilidade->final .' +1 day'),
+                new \DateTime($disponibilidade->final),
                 $disponibilidade->id
             );
         }
@@ -55,17 +56,16 @@ class AdminDisponibilidadeController extends Controller
      */
     public function store(Request $request)
     {
-//        $validator = Validator::make($request->all(), [
-//            'user_id'=>'required',
-//            'inicio'=>'required',
-//            'final'=>'required',
-//        ]);
-//        if($validator->fails()){
-//            Session::flash('adminCalendarioFailMessage','Algo falhou!');
-//            return redirect(route('admin.calendario.index'));
-//        }
         $input = $request->all();
+        $inicio_exp = explode('-',$input['inicio']);
+        $hora_exp = explode(':',$input['hora']);
+        $hora_inicio = Carbon::create($inicio_exp[0],$inicio_exp[1],$inicio_exp[2],$hora_exp[0],$hora_exp[1],0,'America/Sao_Paulo');
+        $hora_final = Carbon::create($inicio_exp[0],$inicio_exp[1],$inicio_exp[2],$hora_exp[0]+1,$hora_exp[1],0,'America/Sao_Paulo');
+        $input['inicio'] = $hora_inicio;
+//        $hora_cadastro->addHour();
+        $input['final'] = $hora_final;
         $input['user_id'] = Auth::user()->id;
+//        return $input;
         Disponibilidade::create($input);
         Session::flash('adminCalendarioSuccessMessage','Disponibilidade agendada com sucesso!');
         return redirect(route('admin.calendario.index'));

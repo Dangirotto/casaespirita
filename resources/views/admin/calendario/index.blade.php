@@ -22,22 +22,21 @@
         @endif
 
     <!-- Conteudo da pagina -->
-        <a href="{{route('admin.calendario.create')}}"><button class="btn btn-primary botao_borda">Inserir</button></a>
 
-        <h3>Seu calendário:</h3>
+        <h3>Adicionar horário disponível:</h3>
 
         {!! Form::open(['method'=>'post', 'action'=>'AdminDisponibilidadeController@store', 'files'=>true]) !!}
             <div class="row">
                 <div class="col-4 col-sm-4 col-md-4">
                     <div class="form-group">
                         {!! Form::label('inicio','Início:') !!}
-                        {!! Form::date('inicio', null, ['class'=>'form-control']) !!}
+                        {!! Form::date('inicio', \Carbon\Carbon::now('America/Sao_Paulo'), ['class'=>'form-control']) !!}
                     </div>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4">
                     <div class="form-group">
-                        {!! Form::label('final','Final:') !!}
-                        {!! Form::date('final', null, ['class'=>'form-control']) !!}
+                        {!! Form::label('hora','Hora:') !!}
+                        {!! Form::time('hora', \Carbon\Carbon::now('America/Sao_Paulo')->format('H:i'), ['class'=>'form-control']) !!}
                     </div>
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 text-center"> &nbsp; <br/>
@@ -60,5 +59,6 @@
 @section('scripts')
     <script src="/js/moment.min.js"></script>
     <script src="/js/fullcalendar.min.js"></script>
+    <script src="/locale/pt-br.js"></script>
     {!! $calendar_details->script() !!}
 @endsection {{--End of section 'scripts'--}}
