@@ -23,6 +23,19 @@
     {{-- Ícones para a página --}}
     <link rel="icon" href="../images/Portal.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../images/Portal.ico" type="image/x-icon" />
+
+    <!-- OG Graph-->
+    <meta property="og:locale" content="pt_br">
+    <meta property="og:url" content="http://portaespirita.org">
+    <meta property="og:title" content="Portal Espírita">
+    <meta property="og:site_name" content="Portal Espírita">
+    <meta property="og:description" content="Portal sobre a Doutrina Espírita, com informações e serviços para os interessados em aprender mais sobre o espiritismo">
+    <meta property="og:image" content="http://portalespirita.org/images/PortalEspirita.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="576">
+    <meta property="og:type" content="website">
+
 </head>
 
 <body>

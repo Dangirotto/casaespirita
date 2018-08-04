@@ -29,7 +29,7 @@
         <h4 class="font-italic fonte-merienda">Nos encontre</h4>
         <ol class="list-unstyled">
             {{--<li><a href="#">Facebook</a></li>--}}
-            <li><a href="mailto:dangirotto@gmail.com">E-mail</a></li>
+            <li><a href="mailto:contato@portalespirita.org">E-mail</a></li>
             <li><a href="{{route('contato')}}">Contato</a></li>
         </ol>
     </div>

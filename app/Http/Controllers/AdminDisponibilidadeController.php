@@ -30,7 +30,12 @@ class AdminDisponibilidadeController extends Controller
                 false,
                 new \DateTime($disponibilidade->inicio),
                 new \DateTime($disponibilidade->final),
-                $disponibilidade->id
+                $disponibilidade->id,
+                [
+//                    'color' => '#ff0000',
+                    'url' => route('admin.calendario.show',$disponibilidade->id),
+//                    'eventClick' => 'click_test()',
+                ]
             );
         }
         $calendar_details = \Calendar::addEvents($disp_lista);
@@ -79,7 +84,26 @@ class AdminDisponibilidadeController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_id = Auth::user()->id;
+        $disponibilidades = Disponibilidade::where('user_id',$user_id)->get();
+        $disp_lista = [];
+        foreach($disponibilidades as $key => $disponibilidade){
+            $disp_lista[] = Calendar::event(
+                "Disponivel",
+                false,
+                new \DateTime($disponibilidade->inicio),
+                new \DateTime($disponibilidade->final),
+                $disponibilidade->id,
+                [
+//                    'color' => '#ff0000',
+                    'url' => route('admin.calendario.show',$disponibilidade->id),
+//                    'eventClick' => 'click_test()',
+                ]
+            );
+        }
+        $calendar_details = \Calendar::addEvents($disp_lista);
+        $evento = Disponibilidade::findOrFail($id);
+        return view('admin.calendario.index', compact('calendar_details','evento'));
     }
 
     /**

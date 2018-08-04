@@ -129,6 +129,7 @@ Route::group(['middleware'=>'auth'], function(){
 
     //CALENDARIO
     Route::resource('/admin/calendario', 'AdminDisponibilidadeController');
+//    Route::get('/admin/calendario/{id}','AdminDisponibilidadeController@verEvento');
 
 });
 
