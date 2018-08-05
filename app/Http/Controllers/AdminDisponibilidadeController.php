@@ -126,7 +126,18 @@ class AdminDisponibilidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $inicio_exp = explode('-',$input['inicio']);
+        $hora_exp = explode(':',$input['hora']);
+        $hora_inicio = Carbon::create($inicio_exp[0],$inicio_exp[1],$inicio_exp[2],$hora_exp[0],$hora_exp[1],0,'America/Sao_Paulo');
+        $hora_final = Carbon::create($inicio_exp[0],$inicio_exp[1],$inicio_exp[2],$hora_exp[0]+1,$hora_exp[1],0,'America/Sao_Paulo');
+        $input['inicio'] = $hora_inicio;
+        $input['final'] = $hora_final;
+        $input['user_id'] = Auth::user()->id;
+//        return $input;
+        Disponibilidade::findOrFail($id)->update($input);
+        Session::flash('adminCalendarioSuccessMessage','Disponibilidade atualizada com sucesso!');
+        return redirect(route('admin.calendario.index'));
     }
 
     /**
@@ -137,6 +148,13 @@ class AdminDisponibilidadeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $disponibilidade = Disponibilidade::findOrFail($id);
+        if($disponibilidade->marcado){
+            Session::flash('adminCalendarioFailMessage','Favor, desmarcar o agendamento existente primeiro!');
+            return redirect(route('admin.calendario.index'));
+        }
+        $disponibilidade->delete();
+        Session::flash('adminCalendarioSuccessMessage','Disponibilidade removida com sucesso!');
+        return redirect(route('admin.calendario.index'));
     }
 }

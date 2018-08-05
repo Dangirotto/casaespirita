@@ -57,9 +57,22 @@
                         <h5 class="card-header">Detalhes do agendamento</h5>
                         <div class="card-body">
                                 <h5 class="card-title">Data e Hora</h5>
+                                {!! Form::model($evento, ['method'=>'PATCH', 'action'=>['AdminDisponibilidadeController@update', $evento->id], 'files'=>true]) !!}
                                 <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">Atualizar</a>
-                                <a href="#" class="btn btn-danger">Excluir</a>
+                                <div class="form-group">
+                                    {!! Form::label('inicio','Início:') !!}
+                                    {!! Form::date('inicio', \Carbon\Carbon::parse($evento->inicio)->toDateString(), ['class'=>'form-control']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('hora','Hora:') !!}
+                                    {!! Form::time('hora', \Carbon\Carbon::parse($evento->inicio)->toTimeString(), ['class'=>'form-control']) !!}
+                                </div>
+                                {!! Form::submit('Atualizar', ['class'=>'btn btn-primary']) !!}
+                                {!! Form::close() !!}
+                                <hr>
+                                {!! Form::open(['method'=>'DELETE', 'action'=>['AdminDisponibilidadeController@destroy',$evento->id]]) !!}
+                                {!! Form::submit('Excluir', ['class'=>'btn btn-danger']) !!}
+                                {!! Form::close() !!}
                         </div>
                     </div>
                 @endif
